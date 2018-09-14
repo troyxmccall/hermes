@@ -1,6 +1,6 @@
 config:
 
-  # Supress the error summary that follows
+  # Suppress the error summary that follows
   show-failure-report: false
 
   # Show an eta for each task on the screen (being shown on every line 

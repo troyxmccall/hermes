@@ -611,7 +611,7 @@ func (task *Task) runSingleCmd(resultChan chan CmdEvent, waiter *sync.WaitGroup,
 
 	logToMain("Completed Task: "+task.Config.Name+" (rc:"+strconv.Itoa(returnCode)+")", infoFormat)
 
-	// close the write end of the pipe since the child shell is positively no longer writting to it
+	// close the write end of the pipe since the child shell is positively no longer writing to it
 	task.Command.Cmd.ExtraFiles[0].Close()
 	data, err := ioutil.ReadAll(task.Command.EnvReadFile)
 	checkError(err, "Could not read env vars from child shell")
