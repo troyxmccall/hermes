@@ -7,8 +7,7 @@ $(TARGETS):
 	./scripts/$@
 
 run:
-	go run main.go task.go config.go screen.go download.go log.go archive.go \
-	run example/00-demo.yml
+	go run main.go run example/13-single-line.yml
 
 examples: clean build
 	./dist/hermes run example/00-demo.yml
@@ -28,7 +27,7 @@ examples: clean build
 	./dist/hermes run example/13-single-line.yml || true
 	# ./dist/hermes run example/14-sudo.yml
 	./dist/hermes run example/15-yaml-includes.yml
-	./dist/hermes bundle example/16-bundle-manifest.yml && ./16-bundle-manifest.hermes; rm -f 16-bundle-manifest.hermes
+	./dist/hermes bundle example/16-bundle-manifest.yml && ./16-bundle-manifest.bundle; rm -f 16-bundle-manifest.bundle
 
 clean:
 	rm -f dist/hermes build.log
