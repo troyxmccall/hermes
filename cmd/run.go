@@ -1,14 +1,12 @@
-
-
 package cmd
 
 import (
 	"fmt"
 
 	"github.com/spf13/cobra"
-	"strings"
-	"io/ioutil"
 	"github.com/troyxmccall/hermes/core"
+	"io/ioutil"
+	"strings"
 )
 
 var tags, onlyTags string
@@ -18,7 +16,7 @@ var runCmd = &cobra.Command{
 	Use:   "run",
 	Short: "Execute the given yaml file with hermes",
 	Long:  `Execute the given yaml file with hermes`,
-	Args: cobra.MaximumNArgs(1),
+	Args:  cobra.MaximumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 
 		userYamlPath := args[0]

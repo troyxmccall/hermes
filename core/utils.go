@@ -2,9 +2,9 @@ package core
 
 import (
 	"fmt"
+	"os"
 	"runtime"
 	"time"
-	"os"
 )
 
 func ExitWithErrorMessage(msg string) {
@@ -48,7 +48,6 @@ func doesFileExist(name string) bool {
 	}
 	return true
 }
-
 
 func showDuration(duration time.Duration) string {
 	if duration < 0 {

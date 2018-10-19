@@ -1,5 +1,3 @@
-
-
 package cmd
 
 import (
@@ -13,7 +11,7 @@ var bundleCmd = &cobra.Command{
 	Use:   "bundle",
 	Short: "Bundle yaml and referenced resources into a single executable (experimental)",
 	Long:  `Bundle yaml and referenced resources into a single executable (experimental)`,
-	Args: cobra.ExactArgs(1),
+	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 
 		userYamlPath := args[0]

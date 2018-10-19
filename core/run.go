@@ -1,17 +1,17 @@
 package core
 
 import (
-	"text/template"
-	"time"
-	"strings"
-	"fmt"
 	"bytes"
-	"strconv"
-	"math/rand"
-	"os/exec"
+	"fmt"
 	"github.com/howeyc/gopass"
 	color "github.com/mgutz/ansi"
 	terminal "github.com/wayneashleyberry/terminal-dimensions"
+	"math/rand"
+	"os/exec"
+	"strconv"
+	"strings"
+	"text/template"
+	"time"
 )
 
 const (
@@ -43,7 +43,6 @@ type summary struct {
 	Steps   string
 	Errors  string
 }
-
 
 func Run(yamlString []byte, environment map[string]string) []*Task {
 	var err error
@@ -131,7 +130,6 @@ func Run(yamlString []byte, environment map[string]string) []*Task {
 	return failedTasks
 }
 
-
 func storeSudoPasswd() {
 	var sout bytes.Buffer
 
@@ -176,8 +174,6 @@ func storeSudoPasswd() {
 		CheckError(err, "Could not determine sudo access for user.")
 	}
 }
-
-
 
 func footer(status CommandStatus, message string) string {
 	var tpl bytes.Buffer

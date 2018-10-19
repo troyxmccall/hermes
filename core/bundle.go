@@ -1,13 +1,13 @@
 package core
 
 import (
-	"text/template"
-	"io/ioutil"
-	"fmt"
-	"os"
 	"bytes"
-	"path/filepath"
+	"fmt"
 	"io"
+	"io/ioutil"
+	"os"
+	"path/filepath"
+	"text/template"
 )
 
 func Bundle(userYamlPath, outputPath string) {

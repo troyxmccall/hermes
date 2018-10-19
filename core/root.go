@@ -1,16 +1,15 @@
 package core
 
 import (
+	"github.com/spf13/afero"
 	"os"
 	"os/signal"
 	"syscall"
-	"github.com/spf13/afero"
 )
 
 var (
-	appFs  afero.Fs
+	appFs afero.Fs
 )
-
 
 func Setup() {
 	appFs = afero.NewOsFs()
