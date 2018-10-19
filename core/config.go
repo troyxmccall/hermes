@@ -215,6 +215,9 @@ type TaskConfig struct {
 
 	// URL is the http/https link to a bash/executable resource
 	URL string `yaml:"url"`
+
+	//get parent task cwd
+	ParentCwdString string ``
 }
 
 // NewTaskConfig creates a new TaskConfig populated with sane default values (derived from the global OptionsConfig)
@@ -479,7 +482,7 @@ func parseRunYaml(yamlString []byte) {
 		}
 	}
 
-	// child tasks should inherit parent Config tags
+	// child tasks should inherit parent Config tags - also let's pass the parent CWD in case we need it later
 	for index := range Config.TaskConfigs {
 		taskConfig := &Config.TaskConfigs[index]
 		taskConfig.TagSet = mapset.NewSet()
@@ -493,6 +496,7 @@ func parseRunYaml(yamlString []byte) {
 			for _, tag := range subTaskConfig.Tags {
 				subTaskConfig.TagSet.Add(tag)
 			}
+			subTaskConfig.ParentCwdString = taskConfig.CwdString
 		}
 	}
 

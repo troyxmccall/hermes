@@ -271,6 +271,15 @@ func (task *Task) inflateCmd() {
 	// Set current working directory; default is empty
 	task.Command.Cmd.Dir = task.Config.CwdString
 
+	if (len(task.Command.Cmd.Dir) != 0) {
+		LogToMain("CWD was set at the task level for "+task.Config.Name+" CWD set to: "+task.Command.Cmd.Dir, infoFormat)
+	} else if (len(task.Command.Cmd.Dir) == 0 && len(task.Config.ParentCwdString) != 0){
+		LogToMain("CWD inherited for task "+task.Config.Name+ " CWD set to: "+task.Config.ParentCwdString, infoFormat)
+		task.Command.Cmd.Dir = task.Config.ParentCwdString
+	} else {
+		LogToMain("no CWD inherited or set for task "+task.Config.Name, infoFormat)
+	}
+
 	// allow the child process to provide env vars via a pipe (FD3)
 	task.Command.Cmd.ExtraFiles = []*os.File{writeFd}
 	task.Command.EnvReadFile = readFd
